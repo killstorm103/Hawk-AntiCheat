@@ -37,7 +37,7 @@ public class ChkinfoArgument extends Argument {
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 2)
             return false;
-        for (Check check : hawk.getCheckManager().getChecks()) {
+        for (Check<?> check : hawk.getCheckManager().getChecks()) {
             if (check.getName().equalsIgnoreCase(args[1])) {
                 sender.sendMessage(ChatColor.GOLD + "Basic information about check \"" + check.getName() + "\":");
                 sender.sendMessage(ChatColor.GOLD + "Status: " + (check.isEnabled() ? ChatColor.GREEN + "ENABLED" : ChatColor.RED + "DISABLED"));

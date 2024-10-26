@@ -43,7 +43,8 @@ public class CheckManager {
     private final Set<UUID> forcedPlayers;
 
     //make these HashSets?
-    private final List<Check> checks;
+    @SuppressWarnings("rawtypes")
+	private final List<Check> checks;
     private final List<BlockDigCheck> blockDigChecks;
     private final List<BlockInteractionCheck> blockInteractionChecks;
     private final List<CustomCheck> customChecks;
@@ -145,11 +146,12 @@ public class CheckManager {
     }
 
     public void removeData(Player p) {
-        for (Check check : checks)
+        for (Check<?> check : checks)
             check.removeData(p);
     }
 
-    public List<Check> getChecks() {
+    @SuppressWarnings("rawtypes")
+	public List<Check> getChecks() {
         return checks;
     }
 

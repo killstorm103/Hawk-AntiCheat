@@ -25,7 +25,6 @@ import me.islandscout.hawk.module.listener.PacketListener;
 import me.islandscout.hawk.module.listener.PacketListener7;
 import me.islandscout.hawk.module.listener.PacketListener8;
 import me.islandscout.hawk.util.ConfigHelper;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.packet.PacketAdapter;
 import me.islandscout.hawk.util.packet.PacketConverter7;
 import me.islandscout.hawk.util.packet.PacketConverter8;

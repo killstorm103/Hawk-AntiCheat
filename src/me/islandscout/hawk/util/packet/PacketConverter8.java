@@ -25,7 +25,6 @@ import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerAbilitiesEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerMetadataEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerTeleportEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerVelocityChangeEvent;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.ServerUtils;
 import me.islandscout.hawk.wrap.WrappedWatchableObject;
 import me.islandscout.hawk.wrap.packet.WrappedPacket;
@@ -74,7 +73,7 @@ public final class PacketConverter8 {
 
     public static org.bukkit.event.Event packetOutboundToEvent(Object packet, Player p) {
         if(packet instanceof PacketPlayOutEntityVelocity || packet instanceof PacketPlayOutExplosion)
-            return packetToVelocityEvent((Packet)packet, p);
+            return packetToVelocityEvent((Packet<?>)packet, p);
         if(packet instanceof PacketPlayOutEntityMetadata)
             return packetToPlayerMetadataEvent((PacketPlayOutEntityMetadata)packet, p);
         if(packet instanceof PacketPlayOutPosition)
@@ -84,7 +83,8 @@ public final class PacketConverter8 {
         return null;
     }
 
-    private static HawkAsyncPlayerTeleportEvent packetToPlayerTeleportEvent(PacketPlayOutPosition packet, Player p) {
+    @SuppressWarnings("unused")
+	private static HawkAsyncPlayerTeleportEvent packetToPlayerTeleportEvent(PacketPlayOutPosition packet, Player p) {
         PacketDataSerializer serializer = new PacketDataSerializer(Unpooled.buffer());
         try {
             packet.b(serializer);
@@ -130,7 +130,7 @@ public final class PacketConverter8 {
         try {
             packet.b(serializer);
             int id = serializer.e();
-            List metaData = DataWatcher.b(serializer);
+            List<?> metaData = DataWatcher.b(serializer);
             if(id != p.getEntityId() || metaData == null)
                 return null;
 
@@ -153,7 +153,7 @@ public final class PacketConverter8 {
         return null;
     }
 
-    private static HawkAsyncPlayerVelocityChangeEvent packetToVelocityEvent(Packet packet, Player p) {
+    private static HawkAsyncPlayerVelocityChangeEvent packetToVelocityEvent(Packet<?> packet, Player p) {
         if(packet instanceof PacketPlayOutExplosion) {
             PacketDataSerializer serializer = new PacketDataSerializer(Unpooled.buffer(0));
             try {
@@ -308,7 +308,8 @@ public final class PacketConverter8 {
     }
 
     //it appears that this gets called when interacting with blocks too
-    private static Event packetToUseEvent(PacketPlayInBlockPlace packet, Player p, HawkPlayer pp) {
+    @SuppressWarnings("deprecation")
+	private static Event packetToUseEvent(PacketPlayInBlockPlace packet, Player p, HawkPlayer pp) {
         org.bukkit.Material mat;
         if (packet.getItemStack() != null && packet.getItemStack().getItem() != null) {
             Block block = Block.asBlock(packet.getItemStack().getItem());

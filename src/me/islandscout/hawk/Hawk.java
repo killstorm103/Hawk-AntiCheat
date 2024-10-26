@@ -208,7 +208,8 @@ public class Hawk extends JavaPlugin {
         violationLogger.prepare(storageFile);
     }
 
-    private void setServerVersion() {
+    private void setServerVersion() 
+    {
         if(Package.getPackage("net.minecraft.server.v1_8_R3") != null) {
             SERVER_VERSION = 8;
         }

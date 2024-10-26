@@ -64,7 +64,8 @@ public class InteractItemEvent extends Event {
         }
     }
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void resync() {
         if(Event.allowedToResync(pp)) {
             WrappedEntityHuman weh = (WrappedEntityHuman) WrappedEntity.getWrappedEntity(p);

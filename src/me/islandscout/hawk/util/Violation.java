@@ -26,14 +26,14 @@ import org.bukkit.entity.Player;
 public class Violation {
 
     private final Player player;
-    private final Check check;
+    private final Check<?> check;
     private final long time;
     private final short ping;
     private final short vl;
     private final float tps;
     private final String server;
 
-    public Violation(HawkPlayer pp, Check check, short vl) {
+    public Violation(HawkPlayer pp, Check<?> check, short vl) {
         this.player = pp.getPlayer();
         this.check = check;
         this.time = System.currentTimeMillis();
@@ -47,7 +47,7 @@ public class Violation {
         return player;
     }
 
-    public Check getCheck() {
+    public Check<?> getCheck() {
         return check;
     }
 

@@ -19,16 +19,15 @@
 package me.islandscout.hawk.module;
 
 import me.islandscout.hawk.Hawk;
-import me.islandscout.hawk.HawkPlayer;
-import me.islandscout.hawk.util.ServerUtils;
-import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Getter;
 
 public class HawkSyncTaskScheduler implements Runnable {
 
     private long currentTick;
+    @Getter
     private final Hawk hawk;
     private List<HawkTask> tasks;
     private static int hawkTaskInstances;

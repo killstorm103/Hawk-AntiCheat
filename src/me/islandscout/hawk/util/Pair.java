@@ -50,7 +50,7 @@ public class Pair<K,V> {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Pair && ((Pair) obj).key.equals(key) && ((Pair) obj).value.equals(value);
+        return obj instanceof Pair && ((Pair<?, ?>) obj).key.equals(key) && ((Pair<?, ?>) obj).value.equals(value);
     }
 
     @Override

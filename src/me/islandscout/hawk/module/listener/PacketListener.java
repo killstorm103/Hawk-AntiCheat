@@ -187,7 +187,7 @@ public abstract class PacketListener {
         System.err.println("The packet was dropped to prevent possible exploitation.");
         System.err.println("This " + packetName + "'s fields:");
 
-        Class current = packet.getClass();
+        Class<?> current = packet.getClass();
         while(current != null){
             for (Field field : current.getDeclaredFields()) {
                 field.setAccessible(true);

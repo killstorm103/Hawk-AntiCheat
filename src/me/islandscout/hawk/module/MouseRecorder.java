@@ -195,7 +195,8 @@ public class MouseRecorder {
         private Pair<Float, Float> origin;
         private List<Pair<Float, Float>> motions;
         private List<Integer> clicks;
-        private List<Integer> teleports;
+        @SuppressWarnings("unused")
+		private List<Integer> teleports;
         private int moves;
         private List<HawkEventListener> hawkListeners;
 

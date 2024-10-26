@@ -28,7 +28,6 @@ import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -54,7 +53,8 @@ public class HawkPlayer {
     private final List<Pair<Runnable, Long>> simulatedCmds;
 
     private final UUID uuid;
-    private final Map<Check, Double> vl;
+    @SuppressWarnings("rawtypes")
+	private final Map<Check, Double> vl;
     private boolean digging;
     private boolean receiveNotifications;
     private boolean online;
@@ -188,27 +188,28 @@ public class HawkPlayer {
             itemConsumeTicks++;
     }
 
-    public int getVL(Check check) {
+    public int getVL(Check<?> check) {
         return (int) (double) vl.getOrDefault(check, 0D);
     }
 
-    public Map<Check, Double> getVLs() {
+    @SuppressWarnings("rawtypes")
+	public Map<Check, Double> getVLs() {
         return vl;
     }
 
-    public void setVL(Check check, double vl) {
+    public void setVL(Check<?> check, double vl) {
         this.vl.put(check, vl);
     }
 
-    public void incrementVL(Check check) {
+    public void incrementVL(Check<?> check) {
         this.vl.put(check, vl.getOrDefault(check, 0D) + 1D);
     }
 
-    public void addVL(Check check, double amnt) {
+    public void addVL(Check<?> check, double amnt) {
         this.vl.put(check, vl.getOrDefault(check, 0D) + amnt);
     }
 
-    public void multiplyVL(Check check, double factor) {
+    public void multiplyVL(Check<?> check, double factor) {
         vl.put(check, vl.getOrDefault(check, 0D) * factor);
     }
 

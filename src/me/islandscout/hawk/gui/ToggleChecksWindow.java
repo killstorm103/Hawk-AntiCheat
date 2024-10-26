@@ -33,7 +33,8 @@ public class ToggleChecksWindow extends Window {
 
     //TODO: Paginate this menu. Max checks per page should be 45 so that we can leave one row for page actions.
 
-    public ToggleChecksWindow(Hawk hawk, Player p) {
+    @SuppressWarnings("rawtypes")
+	public ToggleChecksWindow(Hawk hawk, Player p) {
         super(hawk, p, 6, ChatColor.GOLD + "Toggle checks");
         List<Check> list = hawk.getCheckManager().getChecks();
 

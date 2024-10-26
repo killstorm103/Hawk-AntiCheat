@@ -19,8 +19,6 @@
 package me.islandscout.hawk;
 
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerVelocityChangeEvent;
-import me.islandscout.hawk.module.BanManager;
-import me.islandscout.hawk.util.MathPlus;
 import me.islandscout.hawk.util.packet.PacketAdapter;
 import net.minecraft.server.v1_7_R4.*;
 import net.minecraft.util.io.netty.buffer.Unpooled;
@@ -31,7 +29,6 @@ import org.bukkit.util.Vector;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +39,7 @@ public class Test {
     public Test(Hawk hawk) {
         this.hawk = hawk;
     }
-
+    @SuppressWarnings ({"unused"})
     public static void main(String[] args) {
 
         System.out.println(magFieldLongWire(new Vector(0.2, 1, 0), new Vector(1, 0, 0), 1));
@@ -175,35 +172,38 @@ public class Test {
         return magDir.multiply((1.2566370614359E-6 /*mu nought*/ * amps) / (2 * Math.PI * closestPointOnWire.distance(eval)));
     }
 
-    private static double electrostaticForceAbs(double chargeA, double chargeB, double dist) {
+    @SuppressWarnings("unused")
+	private static double electrostaticForceAbs(double chargeA, double chargeB, double dist) {
         final double coulombConst = 8.9875517923 * Math.pow(10, 9);
         return Math.abs((coulombConst * chargeA * chargeB)/(dist * dist));
     }
 
     //returns electrostatic force on chargeB (in newtons)
-    private static Vector electrostaticForce(double chargeA, double chargeB, Vector displacement) { //displacement: position of B relative to A
+    @SuppressWarnings("unused")
+	private static Vector electrostaticForce(double chargeA, double chargeB, Vector displacement) { //displacement: position of B relative to A
         final double coulombConst = 8.9875517923 * Math.pow(10, 9);
         return displacement.clone().normalize().multiply((coulombConst * chargeA * chargeB)/displacement.lengthSquared());
     }
 
     //returns electrostatic field at point (in newtons per coulomb)
-    private static Vector electrostaticField(double charge, Vector displacement) { //displacement from charge
+    @SuppressWarnings("unused")
+	private static Vector electrostaticField(double charge, Vector displacement) { //displacement from charge
         final double coulombConst = 8.9875517923 * Math.pow(10, 9);
         return displacement.clone().normalize().multiply((coulombConst * charge)/displacement.lengthSquared());
     }
 
     //returns electric potential at point (in volts)
-    private static double electricPotential(double charge, double distance) {
+    @SuppressWarnings("unused")
+	private static double electricPotential(double charge, double distance) {
         final double coulombConst = 8.9875517923E9;
         return (coulombConst * charge) / distance; //dont even ask why this is positive (negative times negative is positive) (because E = -dV/dX ?)
     }
 
-    private static void inputConverter() {
+    @SuppressWarnings("unused")
+	private static void inputConverter() {
         File file = new File("resources/input.txt");
 
-        try {
-            Scanner in = new Scanner(file);
-
+        try (Scanner in = new Scanner(file)) {
             while(in.hasNext()) {
                 String input = in.nextLine();
 
@@ -235,7 +235,7 @@ public class Test {
 
                         if(nmsEntity instanceof EntityLiving && !(nmsEntity instanceof EntityWolf)) {
 
-                            List b = DataWatcher.b(serializer);
+                            List<?> b = DataWatcher.b(serializer);
 
                             //SETTING VALUES
                             for (Object aB : b) {

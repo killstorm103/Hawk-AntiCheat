@@ -154,7 +154,7 @@ public final class MathPlus {
         return high - low;
     }
 
-    public static double range(List data) {
+    public static double range(List<?> data) {
         double[] array = new double[data.size()];
         for(int i = 0; i < array.length; i++) {
             array[i] = ((Number)data.get(i)).doubleValue();
@@ -162,7 +162,7 @@ public final class MathPlus {
         return range(array);
     }
 
-    public static double min(List data) {
+    public static double min(List<?> data) {
         double min = Double.MAX_VALUE;
         for (Object datum : data) {
             double value = ((Number) datum).doubleValue();
@@ -172,7 +172,7 @@ public final class MathPlus {
         return min;
     }
 
-    public static double max(List data) {
+    public static double max(List<?> data) {
         double max = -Double.MAX_VALUE;
         for (Object datum : data) {
             double value = ((Number) datum).doubleValue();

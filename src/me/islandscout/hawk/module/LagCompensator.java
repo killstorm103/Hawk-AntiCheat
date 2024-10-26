@@ -281,6 +281,8 @@ public class LagCompensator implements Listener {
                 break;
             case SOUTH:
                 offset.setZ(1);
+		default:
+			break;
         }
 
         long currTime = System.currentTimeMillis();

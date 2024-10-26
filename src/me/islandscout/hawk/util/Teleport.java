@@ -19,7 +19,6 @@
 package me.islandscout.hawk.util;
 
 import me.islandscout.hawk.HawkPlayer;
-import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
 public class Teleport {

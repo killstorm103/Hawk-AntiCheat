@@ -32,7 +32,8 @@ public class ChecksArgument extends Argument {
         super("checks", "", "Provides a list of Hawk checks.");
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         List<Check> checks = hawk.getCheckManager().getChecks();
         List<String> chkNames = new ArrayList<>();

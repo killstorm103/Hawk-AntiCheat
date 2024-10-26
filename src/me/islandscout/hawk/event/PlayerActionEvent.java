@@ -47,6 +47,8 @@ public class PlayerActionEvent extends Event {
                 case SPRINT_STOP:
                     pp.setSprinting(false);
                     break;
+			default:
+				break;
             }
         }
     }

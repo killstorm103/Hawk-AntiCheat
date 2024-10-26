@@ -33,7 +33,7 @@ public class ChktoggleArgument extends Argument {
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 2)
             return false;
-        for (Check check : hawk.getCheckManager().getChecks()) {
+        for (Check<?> check : hawk.getCheckManager().getChecks()) {
             if (check.getName().equalsIgnoreCase(args[1])) {
                 check.setEnabled(!check.isEnabled());
                 sender.sendMessage(ChatColor.GOLD + "Check \"" + check.getName() + "\" toggled " + (check.isEnabled() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF"));

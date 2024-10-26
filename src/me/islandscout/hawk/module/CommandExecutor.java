@@ -29,7 +29,8 @@ import java.util.*;
 
 public class CommandExecutor {
 
-    private final Set<Pair<UUID, Pair<Check, String>>> commandHistory;
+    @SuppressWarnings("rawtypes")
+	private final Set<Pair<UUID, Pair<Check, String>>> commandHistory;
 
     public CommandExecutor(Hawk hawk) {
         this.commandHistory = Collections.synchronizedSet(new HashSet<>());
@@ -43,7 +44,7 @@ public class CommandExecutor {
         }, cooldown);
     }
 
-    public void runACommand(List<String> command, Check check, double deltaVL, Player p, HawkPlayer pp, Hawk hawk, Placeholder... placeholders) {
+    public void runACommand(List<String> command, Check<?> check, double deltaVL, Player p, HawkPlayer pp, Hawk hawk, Placeholder... placeholders) {
         if (command.size() == 0 || command.get(0).length() == 0) return;
         for (String aCommand : command) {
             if (aCommand.length() == 0) return;
@@ -94,7 +95,8 @@ public class CommandExecutor {
         }
     }
 
-    private void execute(String[] parts, HawkPlayer pp, Hawk hawk, Check check, Placeholder... placeholders) {
+    @SuppressWarnings("rawtypes")
+	private void execute(String[] parts, HawkPlayer pp, Hawk hawk, Check<?> check, Placeholder... placeholders) {
         String preCmd = parts[2]
                 .replace("%player%", pp.getPlayer().getName())
                 .replace("%ping%", ServerUtils.getPing(pp.getPlayer()) + "")

@@ -23,7 +23,6 @@ import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerAbilitiesEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerMetadataEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerVelocityChangeEvent;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.Pair;
 import me.islandscout.hawk.util.ServerUtils;
 import me.islandscout.hawk.wrap.WrappedWatchableObject;

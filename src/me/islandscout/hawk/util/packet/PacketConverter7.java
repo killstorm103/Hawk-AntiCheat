@@ -24,14 +24,12 @@ import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerAbilitiesEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerMetadataEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerTeleportEvent;
 import me.islandscout.hawk.event.bukkit.HawkAsyncPlayerVelocityChangeEvent;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.ServerUtils;
 import me.islandscout.hawk.wrap.WrappedWatchableObject;
 import me.islandscout.hawk.wrap.packet.WrappedPacket;
 import me.islandscout.hawk.wrap.packet.WrappedPacket7;
 import net.minecraft.server.v1_7_R4.*;
 import net.minecraft.util.io.netty.buffer.Unpooled;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_7_R4.CraftWorld;
@@ -124,7 +122,7 @@ public final class PacketConverter7 {
         PacketDataSerializer serializer = new PacketDataSerializer(Unpooled.buffer(0));
         packet.b(serializer);
         int id = serializer.readInt();
-        List metaData = DataWatcher.b(serializer);
+        List<?> metaData = DataWatcher.b(serializer);
         if(id != p.getEntityId() || metaData == null)
             return null;
 
@@ -278,7 +276,8 @@ public final class PacketConverter7 {
         return new AbilitiesEvent(p, pp, packet.isFlying() && p.getAllowFlight(), new WrappedPacket7(packet, WrappedPacket.PacketType.ABILITIES));
     }
 
-    private static Event packetToUseEvent(PacketPlayInBlockPlace packet, Player p, HawkPlayer pp) {
+    @SuppressWarnings("deprecation")
+	private static Event packetToUseEvent(PacketPlayInBlockPlace packet, Player p, HawkPlayer pp) {
         Material mat;
         if (packet.getItemStack() != null && packet.getItemStack().getItem() != null) {
             Block block = Block.a(packet.getItemStack().getItem());
