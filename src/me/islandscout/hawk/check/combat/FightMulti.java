@@ -20,13 +20,8 @@ package me.islandscout.hawk.check.combat;
 
 import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.EntityInteractionCheck;
-import me.islandscout.hawk.event.InteractAction;
 import me.islandscout.hawk.event.InteractEntityEvent;
-import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class FightMulti extends EntityInteractionCheck {
 

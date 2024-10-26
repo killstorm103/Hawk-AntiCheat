@@ -208,7 +208,8 @@ public class BlockBreakSpeedSurvival extends CustomCheck {
         return f;
     }
 
-    private boolean a(HawkPlayer pp) {
+    @SuppressWarnings("deprecation")
+	private boolean a(HawkPlayer pp) {
         Vector position = pp.getPosition();
         double d0 = position.getY() + 1.62;
         int i = floor(position.getX());

@@ -91,6 +91,8 @@ public class FabricatedMove extends MovementCheck {
                         reward(e.getHawkPlayer());
                     }
                     break;
+			default:
+				break;
             }
 
             UUID uuid = pp.getUuid();

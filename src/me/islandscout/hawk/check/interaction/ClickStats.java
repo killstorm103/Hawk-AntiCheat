@@ -23,7 +23,6 @@ import me.islandscout.hawk.check.Cancelless;
 import me.islandscout.hawk.check.CustomCheck;
 import me.islandscout.hawk.event.ArmSwingEvent;
 import me.islandscout.hawk.event.Event;
-import me.islandscout.hawk.util.Debug;
 
 import java.util.*;
 

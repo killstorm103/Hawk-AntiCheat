@@ -10,7 +10,8 @@ public class ECheck extends MovementCheck {
         super("echeck", "%player% failed E, VL: %vl%");
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     protected void check(MoveEvent e) {
         float gcd = MathPlus.gcdRational((float)e.getTo().getY(), (float)e.getFrom().getY());
         if(String.valueOf(gcd).contains("E")) {

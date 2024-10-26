@@ -34,7 +34,8 @@ public class ViolationsArgument extends Argument {
         super("vl", "<player> [check]", "Get the VLs of a player.");
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 2)
             return false;

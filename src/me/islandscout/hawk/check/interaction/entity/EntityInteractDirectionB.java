@@ -72,7 +72,8 @@ public class EntityInteractDirectionB extends CustomCheck {
         }
     }
 
-    private void processMove(MoveEvent e) {
+    @SuppressWarnings("unused")
+	private void processMove(MoveEvent e) {
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
 

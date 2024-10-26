@@ -22,7 +22,6 @@ import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.CustomCheck;
 import me.islandscout.hawk.check.Cancelless;
 import me.islandscout.hawk.event.*;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.MathPlus;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;

@@ -21,10 +21,6 @@ package me.islandscout.hawk.check.interaction;
 import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.CustomCheck;
 import me.islandscout.hawk.event.*;
-import me.islandscout.hawk.util.Debug;
-import me.islandscout.hawk.util.Pair;
-import me.islandscout.hawk.util.ServerUtils;
-import me.islandscout.hawk.wrap.entity.MetaData;
 
 public class MultiAction extends CustomCheck {
 

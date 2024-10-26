@@ -9,7 +9,8 @@ public class RadicalYAxis extends MovementCheck {
         super("radicalyaxis", "%player% did a radical Y-axis, VL: %vl%");
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     protected void check(MoveEvent e) {
         //This is totally radical, dude! Where'd you find this, at the 1980s?
         //No seriously, this is just a joke from the MAC discord. Someone took a

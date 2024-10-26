@@ -21,7 +21,6 @@ package me.islandscout.hawk.command;
 import me.islandscout.hawk.Hawk;
 import me.islandscout.hawk.command.argument.*;
 import me.islandscout.hawk.module.GUIManager;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.SynchronousInterceptor;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

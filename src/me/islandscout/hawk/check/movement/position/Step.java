@@ -3,7 +3,6 @@ package me.islandscout.hawk.check.movement.position;
 import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.MovementCheck;
 import me.islandscout.hawk.event.MoveEvent;
-import me.islandscout.hawk.util.Debug;
 
 public class Step extends MovementCheck {
 

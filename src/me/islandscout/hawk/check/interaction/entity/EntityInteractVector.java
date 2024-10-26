@@ -18,15 +18,12 @@
 
 package me.islandscout.hawk.check.interaction.entity;
 
-import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.CustomCheck;
 import me.islandscout.hawk.event.Event;
 import me.islandscout.hawk.event.InteractAction;
 import me.islandscout.hawk.event.InteractEntityEvent;
 import me.islandscout.hawk.event.MoveEvent;
 import me.islandscout.hawk.util.MathPlus;
-import me.islandscout.hawk.util.ServerUtils;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -75,15 +72,14 @@ public class EntityInteractVector extends CustomCheck {
             Vector hitVec = e.getIntersectVector();
             if(hitVec != null) { //TODO In vanilla this will always be true if player attacked on same tick. Enforce this.
 
-                HawkPlayer pp = e.getHawkPlayer();
-
                 lastHitVecMap.put(e.getPlayer().getUniqueId(), hitVec);
 
             }
         }
     }
 
-    private void processMove(MoveEvent e) {
+    @SuppressWarnings("unused")
+	private void processMove(MoveEvent e) {
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
 

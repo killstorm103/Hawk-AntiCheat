@@ -20,9 +20,7 @@ package me.islandscout.hawk.check.interaction.terrain;
 
 import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.BlockDigCheck;
-import me.islandscout.hawk.check.BlockInteractionCheck;
 import me.islandscout.hawk.event.BlockDigEvent;
-import me.islandscout.hawk.event.InteractWorldEvent;
 import me.islandscout.hawk.util.AABB;
 import me.islandscout.hawk.util.MathPlus;
 import me.islandscout.hawk.util.Placeholder;

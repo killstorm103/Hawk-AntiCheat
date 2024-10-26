@@ -21,15 +21,11 @@ package me.islandscout.hawk.check.movement.position;
 import me.islandscout.hawk.Hawk;
 import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.MovementCheck;
-import me.islandscout.hawk.event.Event;
-import me.islandscout.hawk.event.HawkEventListener;
-import me.islandscout.hawk.event.ItemSwitchEvent;
 import me.islandscout.hawk.event.MoveEvent;
 import me.islandscout.hawk.util.*;
 import me.islandscout.hawk.wrap.entity.WrappedEntity;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.util.Vector;
@@ -258,12 +254,14 @@ public class Speed extends MovementCheck implements Listener {
     }
 
     //speed potions do not affect swimming
-    private Discrepancy waterMapping(double lastSpeed, double currentSpeed, double waterFlowForce) {
+    @SuppressWarnings("unused")
+	private Discrepancy waterMapping(double lastSpeed, double currentSpeed, double waterFlowForce) {
         double expected = 0.800001 * lastSpeed + 0.020001 + waterFlowForce;
         return new Discrepancy(expected, currentSpeed);
     }
 
-    private Discrepancy lavaMapping(double lastSpeed, double currentSpeed) {
+    @SuppressWarnings("unused")
+	private Discrepancy lavaMapping(double lastSpeed, double currentSpeed) {
         double expected = 0.500001 * lastSpeed + 0.020001;
         return new Discrepancy(expected, currentSpeed);
     }

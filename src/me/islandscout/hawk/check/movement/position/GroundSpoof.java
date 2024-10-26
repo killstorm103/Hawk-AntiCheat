@@ -120,6 +120,8 @@ public class GroundSpoof extends MovementCheck {
                     return;
                 case POSITION_LOOK:
                     packet.setByte(40, 0);
+			default:
+				break;
             }
         } else {
             switch (packet.getType()) {
@@ -134,6 +136,8 @@ public class GroundSpoof extends MovementCheck {
                     return;
                 case POSITION_LOOK:
                     packet.setByte(32, 0);
+			default:
+				break;
             }
         }
     }

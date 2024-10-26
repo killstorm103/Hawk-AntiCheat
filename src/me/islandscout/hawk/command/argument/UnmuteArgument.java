@@ -30,7 +30,8 @@ public class UnmuteArgument extends Argument {
         super("unmute", "<player>", "Unmute a player from Hawk's mute manager.");
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 2)
             return false;

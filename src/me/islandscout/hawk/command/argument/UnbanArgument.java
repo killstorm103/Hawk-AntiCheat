@@ -30,7 +30,8 @@ public class UnbanArgument extends Argument {
         super("unban", "<player>", "Unban a player from Hawk's ban manager.");
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public boolean process(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length < 2)
             return false;

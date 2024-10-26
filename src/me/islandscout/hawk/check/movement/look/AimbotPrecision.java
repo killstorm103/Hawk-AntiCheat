@@ -22,9 +22,7 @@ import me.islandscout.hawk.HawkPlayer;
 import me.islandscout.hawk.check.Cancelless;
 import me.islandscout.hawk.check.MovementCheck;
 import me.islandscout.hawk.event.MoveEvent;
-import me.islandscout.hawk.util.Debug;
 import me.islandscout.hawk.util.MathPlus;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.*;
